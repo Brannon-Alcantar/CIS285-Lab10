@@ -41,13 +41,81 @@ testDuplicates();
         /** Test data contains negative values only **/
     }
 
-    public void testMixed(){
+    @Test
+      public void testMixed(){
 
-        /** Test data contains with both positive, negative and zeros **/
-    }
+          /** Test data contains with both positive, negative and zeros **/
+      	int[] arr = new int [5];
+      	arr[0] = -8;
+          arr[1] = 4;
+          arr[2] = 0;
+          arr[3] = -3;
+          arr[4] = 1;
 
-    public void testDuplicates(){
+          int[] Sortedarr = new int[5];
+          Sortedarr[0] = -8;
+          Sortedarr[1] = -3;
+          Sortedarr[2] = 0;
+          Sortedarr[3] = 1;
+          Sortedarr[4] = 4;
 
-        /** Test data contains duplicates **/
-    }
-}
+          temp = new SelectionSort();
+          int [] selectionSortedArr = temp.basicSelectionSort(arr);
+
+          System.out.println("TEST MIXED");
+
+          for (int i = 0; i < selectionSortedArr.length; i++) {
+          	System.out.print(selectionSortedArr[i] + " ");
+          }
+
+          System.out.println();
+
+          for (int i = 0; i < Sortedarr.length; i++) {
+          	System.out.print(Sortedarr[i] + " ");
+          }
+
+          System.out.println();
+
+
+          assertArrayEquals(Sortedarr, selectionSortedArr);
+      }
+
+      @Test
+      public void testDuplicates(){
+
+          /** Test data contains duplicates **/
+      	int[] arr = new int [5];
+      	arr[0] = -8;
+          arr[1] = 4;
+          arr[2] = -8;
+          arr[3] = 3;
+          arr[4] = 3;
+
+          int[] Sortedarr = new int[5];
+          Sortedarr[0] = -8;
+          Sortedarr[1] = -8;
+          Sortedarr[2] = 3;
+          Sortedarr[3] = 3;
+          Sortedarr[4] = 4;
+
+          temp = new SelectionSort();
+          int [] selectionSortedArr = temp.basicSelectionSort(arr);
+
+          System.out.println("TEST DUPLICATES");
+
+          for (int i = 0; i < selectionSortedArr.length; i++) {
+          	System.out.print(selectionSortedArr[i] + " ");
+          }
+
+          System.out.println();
+
+          for (int i = 0; i < Sortedarr.length; i++) {
+          	System.out.print(Sortedarr[i] + " ");
+          }
+
+          System.out.println();
+
+
+          assertArrayEquals(Sortedarr, selectionSortedArr);
+      }
+  }
